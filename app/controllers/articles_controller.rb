@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-   before_action :find_article, only: [:show, :edit, :update, :destroy]
+   before_action :find_article, only: [:show, :edit, :update, :destroy, :a1]
 
 
   def index
@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-   @article = Article.find(params[:id])
+   @article = Article.find_by(id:params[:id])
   end
 
   def a1
@@ -38,9 +38,6 @@ class ArticlesController < ApplicationController
     json5 = File.read('app/assets/javascripts/article5.json')
     @article5 = JSON.parse(json5)
   end
-
-
-
 
 
   def create
@@ -75,7 +72,6 @@ end
       end
 
       def find_article
-        @article = Article.find(params[:id])
+        @article = Article.find_by(id:params[:id])
       end
-
-    end
+  end
