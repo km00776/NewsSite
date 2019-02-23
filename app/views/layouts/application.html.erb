@@ -21,8 +21,13 @@
              <% else %>
              <li><%= link_to "Log In", new_user_session_path %></li>
           <% end %>
-
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li><%= link_to "Add article", new_article_path %></l1>
+            <% end %>
+            </ul>
       </div>
   </nav>
 
