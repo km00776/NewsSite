@@ -1,8 +1,36 @@
-<h2><%= @article.title %></h2>
-<h3><%= @article.writer %></h3>
-<p><%= @article.description %></p>
+
+<div class="col-md-8"
+  <h2><%= @article.title %></h2>
+  <h3><%= @article.writer %></h3>
+  <p><%= @article.description %></p>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+
+
+    <div>
+      <%= link_to "Add Review", new_article_review_path(@article) %>
+    </div>
+
+
 
 
 <%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_article_path(@article) %>
-<%= link_tp "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% if user_signed_in? %>
+
+<% if @article.user_id == current_user.id %>
+
+  <%= link_to "Edit", edit_article_path(@article) %>
+  <%= link_tp "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% end %>
+
+<% if @article1.user_id == current_user.id %>
+  <%= link_to "Edit", edit_article_path(@article1) %>
+  <%= link_tp "Delete", article_path(@article1), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
+<% end %>
+<% end %>

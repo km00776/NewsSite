@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'trending/rank'
+
   devise_for :users
-  resources :articles
+  resources :articles do
+    resources :reviews
+  end
   root 'articles#index'
+
 
   get 'a1', to: 'articles#a1'
   get 'a2', to: 'articles#a2'
