@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get 'a4', to: 'articles#a4'
   get 'a5', to: 'articles#a5'
 
+
+
+
 end

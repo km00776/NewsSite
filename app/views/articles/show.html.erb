@@ -27,10 +27,7 @@
 
 <% end %>
 
-<% if @article1.user_id == current_user.id %>
-  <%= link_to "Edit", edit_article_path(@article1) %>
-  <%= link_tp "Delete", article_path(@article1), method: :delete, data: { confirm: "Are you sure?" } %>
 
 
-<% end %>
+
 <% end %>

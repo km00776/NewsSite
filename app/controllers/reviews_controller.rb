@@ -7,11 +7,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.article_id = @article.id
+    @review.article_id = @articles.id
     @review.user_id = current_user.id
 
     if @review.save
-      redirect_to article_path(@article)
+      redirect_to article_path(@article1)
     else
       render 'new'
     end
@@ -26,9 +26,6 @@ class ReviewsController < ApplicationController
       def find_article
         @article = Article.find(params[:article_id])
       end
-
-
-
 
 
 end
